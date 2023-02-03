@@ -6,7 +6,7 @@ from rest_framework import status
 
 
 class Create_User_Test(APITestCase):
-    """ Create User Test Case""
+    """ Create User Test Case"""
 
     def test_user_create(self):
         """ User can create  """
@@ -276,42 +276,6 @@ class Test_login_logout(APITestCase):
 
 
 
-
-
-
-
-
-
-
-"""
-class User_Login_Test ( APITestCase ):
-
-    def setUp(self):
-
-
-        self.user11 = Token.objects.get(
-            username="rushi", password="bablu@123",
-            email="rushi@gmail.com"
-        )
-
-    def test_user_login(self):
-
-
-        url = reverse ( 'user-list' , args=[self.user11.id] )
-        data = {
-            "key": "4bcc295fd0dac1fdea1ff99268c3f1de387a8e1c" ,
-            "userid":"id:25",
-             "email":"rushi@gmail.com"
-
-        }
-
-        #
-        # token = Token.objects.get ( user__username='lauren' )
-        # client = APIClient ()
-        # client.credentials ( HTTP_AUTHORIZATION='Token ' + token.key )
-        response = self.client.put ( url , data , format='json' )
-        self.assertEqual ( response.status_code , 200 )
-        print ( "POST method status code:" , response.status_code )"""
 
 
 
