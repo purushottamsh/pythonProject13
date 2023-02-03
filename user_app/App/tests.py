@@ -6,7 +6,7 @@ from rest_framework import status
 
 
 class Create_User_Test(APITestCase):
-    """ Create User Test Case"""
+    """ Create User Test Case""
 
     def test_user_create(self):
         """ User can create  """
