@@ -81,6 +81,7 @@ class Read_User_Test(APITestCase):
 
 
     def test_superadmin_read_user_detail(self):
+        """ Super Admin Read User Detail """
         self.client.force_authenticate(self.user3)
         url = reverse('user-detail',args=[self.user3.id])
         response = self.client.get(url)
@@ -186,6 +187,7 @@ class User_Delete_Test(APITestCase):
 
     #user delete
     def test_user_delete(self):
+        """ User Delete test"""
         self.client.force_authenticate(self.user12)
         url = reverse('user-detail', args=[self.user12.id])
         response = self.client.delete(url, self.user12.id, format='json')
@@ -200,7 +202,10 @@ class User_Delete_Test(APITestCase):
         self.assertEqual ( response.status_code , status.HTTP_404_NOT_FOUND )
         print ( "DELETE method status code:" , response.status_code )
 
+
     def test_admin_can_delete_user_detail(self):
+        """ Admin Can Delete The User Detail """
+
         self.client.force_authenticate(self.user14)
         url = reverse('user-detail', args=[self.user14.id])
         response = self.client.delete(url, self.user14.id, format='json')
@@ -208,7 +213,7 @@ class User_Delete_Test(APITestCase):
         print("DELETE method status code:", response.status_code)
 
 
-class Test_login(APITestCase):
+class Test_login_logout(APITestCase):
     def setUp(self):
         self.profile = User.objects.create_user(username="salman", password="bablu@123",
                                             date_of_birth="2023-02-02", phone_number="3233241",street="nigdi",
@@ -216,6 +221,8 @@ class Test_login(APITestCase):
                                             email="salman@gmail.com", city="pune", state="maha", country="india")
 
     def test_login_User(self):
+        """ login User Test"""
+
         user = User.objects.get()
         self.client.force_authenticate(user=user)
         response = self.client.post(
@@ -226,6 +233,7 @@ class Test_login(APITestCase):
         print ( "POST method status code:" , response.status_code )
 
     def test_logout(self):
+        """ User Logout Test"""
         user = User.objects.get ()
         self.client.force_authenticate ( user=user )
         response = self.client.post (
@@ -249,140 +257,6 @@ class Test_login(APITestCase):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""  
-    def test_login(self):
-        data={
-            "username":'salman',"email":'salman@gmail.com',"passsword":'bablu@123'
-        }
-        response = self.client.post(reverse('login'),data)
-        self.client.force_authenticate ()
-        self.assertEqual(response.status_code,status.HTTP_200_OK)
-        print ( "POST method status code:" , response.status_code )"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-    def test_can_login_a_User(self):
-        user = User.objects.get()
-        self.client.force_authenticate(user=user)
-        response = self.client.post(
-            reverse('login'),
-            {"username": "salman", "password": "bablu@123", "email": "salman@gmail.com"}
-        )
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        print ( "POST method status code:" , response.status_code )"""
-
-
-
-
-"""
-class LoginLogoutTests(APITestCase):
-
-    def setUp(self):
-
-        self.user = User.objects.create(username="salman", password="bablu@123",
-                                            date_of_birth="2023-02-02", phone_number="3233241",street="nigdi",
-                                            zipcode="33232", first_name="salman", last_name="khan",
-                                            email="salman@gmail.com", city="pune", state="maha", country="india")
-
-
-    def test_login(self):
-        # test if email is equal
-        self.assertEqual(self.user.email, 'salman@gmail.com')
-        # test authentication
-        self.assertTrue(self.user.is_authenticated)
-        self.assertFalse(self.user.is_anonymous)
-        # test if login request index.html
-        self.assertTrue(self.client.get('user-login'))
-        # test login with valid credentials
-        self.assertTrue(self.client.login('salman@gmail.com',username='salman', password='bablu@123'))
-
-
-    def test_logout(self):
-        self.client.logout()
-        self.assertTrue(self.user.is_authenticated)
-        self.assertFalse(self.user.is_anonymous)"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-class Test_login(APITestCase):
-    def setUp(self):
-
-        self.user = Token.objects.get(username="salman", password="bablu@123",
-                                                       date_of_birth="2023-02-02", phone_number="3233241",street="nigdi",
-                                                       zipcode="33232", first_name="salman", last_name="khan",
-                                                      email="salman@gmail.com", city="pune", state="maha", country="india"
-
-        )
-
-    def test_can_login_User(self):
-        user = Token.objects.get()
-        self.client.force_authenticate(user=user)
-        response = self.client.post(
-            reverse('user-login'),
-            {"key":"716efd3ab1ca02f1abbd266bb823b8396cbb9e20","userid": {
-            "id": 29,
-            "email": "salman@gmail.com"
-        }},
-        )
-        self.assertEqual(response.status_code, status.HTTP_200_OK)"""
 
 
 
