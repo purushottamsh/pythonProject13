@@ -238,7 +238,7 @@ class Test_login_logout(APITestCase):
         self.client.force_authenticate ( user=user )
         response = self.client.post (
         reverse ( 'logout' ))
-        self.assertEqual ( response.status_code , status.HTTP_200_OK )
+        self.assertEqual ( response.status_code ,status.HTTP_200_OK )
         print ( "POST method status code:" , response.status_code)
 
 
