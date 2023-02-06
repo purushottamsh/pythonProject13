@@ -215,6 +215,8 @@ class User_Delete_Test(APITestCase):
 
 class Test_login_logout(APITestCase):
     def setUp(self):
+        """ Login And Logout User """
+
         self.profile = User.objects.create_user(username="salman", password="bablu@123",
                                             date_of_birth="2023-02-02", phone_number="3233241",street="nigdi",
                                             zipcode="33232", first_name="salman", last_name="khan",
