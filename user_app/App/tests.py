@@ -63,7 +63,6 @@ class Read_User_Test(APITestCase):
                                         country='india')
 
 
-
         self.user3=User.objects.create(username='admin1', email='admin1@gmail.com', password='1234',
                                          first_name='admin', last_name='admin', date_of_birth='2023-01-01',
                                          phone_number='213223', street='nigdi', zipcode='411044', city='pune',state='Maharashtra',
@@ -107,7 +106,6 @@ class User_Update_Test ( APITestCase ):
                                                first_name='rohan', last_name='deshmukh', date_of_birth='2023-01-01',
                                                 phone_number='2013412', street='nigdi',zipcode='411042', city='pune',
                                                state='maharashtra',country='india')
-
 
 
         self.user13 = User.objects.create ( username='avinash' , email='avinash@gmail.com' , password='bablu@123' ,
