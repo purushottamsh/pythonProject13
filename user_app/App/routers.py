@@ -1,6 +1,6 @@
 from rest_framework import routers
 from App import views
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter ()
 
-router.register('User', views.UserViewSet,basename='user')
+router.register ( 'User' , views.UserViewSet , basename='user' )
